@@ -59,10 +59,11 @@ while running:
 
 
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-        car_x -= speed
-    if keys[pygame.K_RIGHT]:
-        car_x += speed
+    if car_x<950 and car_x>50:
+        if keys[pygame.K_LEFT]:
+            car_x -= speed
+        if keys[pygame.K_RIGHT]:
+            car_x += speed
 
         
     for event in pygame.event.get():
