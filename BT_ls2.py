@@ -44,16 +44,18 @@ def check_collision(car_rect,enermy):
     if car_rect.colliderect(enermy):
         return True
     return False
-
-
+enermy_y=1500
+enermy1=pygame.draw.rect(sc,red,pygame.Rect(0,enermy_y,car_w,car_h))
 running = True
 while running:
     sc.fill(yellow)
-    for a in '1':
+    if enermy_y>1000 and enermy_y<0:
         a=random.randint(50,950)
-    enermy1=pygame.draw.rect(sc,red,pygame.Rect(a,0,car_w,car_h))
+        enermy_y=50
     enermy1_x=a
     enermy1_x += speed
+    enermy1=pygame.draw.rect(sc,red,pygame.Rect(a,enermy_y,car_w,car_h))
+
 
 
     keys = pygame.key.get_pressed()
@@ -61,8 +63,7 @@ while running:
         car_x -= speed
     if keys[pygame.K_RIGHT]:
         car_x += speed
-    if keys[pygame.K_0]:
-        score += speed
+
         
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
